@@ -27,14 +27,14 @@ export function Post({ author, publishedAt, content}) {
         event.preventDefault()
 
         
-        setComments([...comments, comments.length + 1]);
+        setComments([...comments, newCommentText]);
         setNewCommentText('');
     }
 
     function handleNewCommentChange() {
         event.target.setCustomValidity('');
 
-        setNewCommentText(event.target.value.value);
+        setNewCommentText(event.target.value);
     }
 
     function handleNewCommentInvalid() {
@@ -49,7 +49,7 @@ export function Post({ author, publishedAt, content}) {
         setComments(commentsWithoutDeleteOne)
     }
 
-    const isNewCommentEmpty = newCommentText.length == 0;
+    const isNewCommentEmpty = newCommentText.length === 0;
 
     return (
         <article className={styles.post}>
